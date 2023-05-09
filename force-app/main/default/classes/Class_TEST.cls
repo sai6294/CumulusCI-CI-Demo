@@ -4,4 +4,6 @@ private class Class_TEST {
     private static void runTest() {
         System.assertEquals(1 + 1, 2, 'We broke math');
     }
+			// This is test			
+			
 }
