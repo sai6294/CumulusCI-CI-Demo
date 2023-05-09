@@ -8,13 +8,13 @@ on:
 env:
     CUMULUSCI_KEYCHAIN_CLASS: cumulusci.core.keychain.EnvironmentProjectKeychain
     CUMULUSCI_SERVICE_github: ${{ secrets.CUMULUSCI_SERVICE_github }}
-    CUMULUSCI_ORG_packaging: '{"username": "d.reed@cci-ci-demo.package", "instance_url": "https://cumulusci-ci-demo-dev-ed.my.salesforce.com"}'
+    CUMULUSCI_ORG_packaging: '{"username": "sai@asit.com", "instance_url": "https://asittechnologies-dev-ed.develop.my.salesforce.com"}'
     SFDX_CLIENT_ID: ${{ secrets.SFDX_CLIENT_ID }}
     SFDX_HUB_KEY: ${{ secrets.SFDX_HUB_KEY }}
 jobs:
   deploy_packaging:
     name: "Deploy to Packaging"
-    runs-on: sfdc-ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install sfdx
@@ -34,7 +34,7 @@ jobs:
           cci flow run ci_master --org packaging
   release_beta:
     name: "Upload Managed Beta"
-    runs-on: sfdc-ubuntu-latest
+    runs-on: ubuntu-latest
     needs: deploy_packaging
     steps:
       - uses: actions/checkout@v2
